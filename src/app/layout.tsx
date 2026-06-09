@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
+import Navbar from "@/components/navbar";
 import "./globals.css";
 
 const sora = Sora({
@@ -37,7 +38,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className={sora.variable}>
-      <body className="min-h-screen bg-surface-alt text-text antialiased">
+      <body className="min-h-screen bg-ivory text-navy antialiased">
+        <Navbar />
         {children}
       </body>
     </html>

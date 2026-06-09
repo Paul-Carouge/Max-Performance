@@ -1,72 +1,73 @@
+"use client";
+
 export default function Footer() {
   return (
-    <footer className="bg-[#1A2E2E] text-[#F4F5F7]">
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Column 1 — Brand */}
+    <footer className="bg-navy text-ivory">
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {/* Brand */}
           <div>
             <h3 className="text-xl font-bold">Max Performance</h3>
-            <p className="text-[#8A9BB0] text-sm mt-2">
-              Coach sportif à Arras, Douai et Cambrai
+            <p className="text-ivory/60 text-sm mt-3 max-w-xs">
+              Coach sportif à Arras, Douai et Cambrai. Séances personnalisées pour atteindre vos objectifs.
             </p>
+            <div className="gold-line mt-6" />
           </div>
 
-          {/* Column 2 — Navigation */}
+          {/* Navigation */}
           <div>
+            <h4 className="text-sm font-semibold uppercase tracking-widest text-gold mb-6">Navigation</h4>
             <ul className="space-y-3">
-              <li>
-                <a href="#" className="text-[#F4F5F7] hover:text-primary-light transition-colors">
-                  Accueil
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-[#F4F5F7] hover:text-primary-light transition-colors">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#certifications" className="text-[#F4F5F7] hover:text-primary-light transition-colors">
-                  Certifications
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-[#F4F5F7] hover:text-primary-light transition-colors">
-                  Contact
-                </a>
-              </li>
+              {[
+                { label: "Accueil", href: "#" },
+                { label: "Services", href: "#services" },
+                { label: "Certifications", href: "#certifications" },
+                { label: "Contact", href: "#contact" },
+              ].map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="text-ivory/70 hover:text-gold transition-colors text-sm"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Column 3 — Social */}
+          {/* Contact */}
           <div>
+            <h4 className="text-sm font-semibold uppercase tracking-widest text-gold mb-6">Contact</h4>
             <ul className="space-y-3">
               <li>
                 <a
-                  href="#"
-                  className="text-[#F4F5F7] hover:text-primary-light transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="mailto:maxperformance.arras@gmail.com"
+                  className="text-ivory/70 hover:text-gold transition-colors text-sm"
                 >
-                  Instagram
+                  maxperformance.arras@gmail.com
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:maxperformance.arras@gmail.com"
-                  className="text-[#F4F5F7] hover:text-primary-light transition-colors"
+                  href="#"
+                  className="text-ivory/70 hover:text-gold transition-colors text-sm"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Email
+                  @maxperformance.arras
                 </a>
+              </li>
+              <li className="text-ivory/70 text-sm">
+                Arras • Douai • Cambrai
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Separator */}
-        <div className="border-t border-white/10 mt-12 pt-6">
-          <p className="text-[#8A9BB0] text-sm text-center">
-            &copy; 2026 Max Performance. Tous droits réservés.
+        <div className="border-t border-white/10 mt-12 pt-8 text-center">
+          <p className="text-ivory/40 text-xs">
+            © 2026 Max Performance. Tous droits réservés.
           </p>
         </div>
       </div>
