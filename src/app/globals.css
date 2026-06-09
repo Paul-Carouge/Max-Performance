@@ -1,26 +1,89 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Nordic Pulse — Max Performance */
+  --color-primary: #2D6A4F;
+  --color-primary-dark: #1F4D38;
+  --color-primary-light: #3D8B6B;
+  --color-secondary: #4A7C8C;
+  --color-secondary-dark: #3A6573;
+  --color-accent: #F9A03F;
+  --color-accent-dark: #E08A2E;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F4F5F7;
+  --color-text: #1A2E2E;
+  --color-text-muted: #5C6B7A;
+  --color-border: #E0E4E8;
+  --color-dark-bg: #1A2E2E;
+  --color-dark-surface: #243A36;
+  --color-dark-text: #F4F5F7;
+  --color-dark-text-muted: #8A9BB0;
+  --color-dark-border: #2D473E;
+
+  --font-sora: 'Sora', system-ui, -apple-system, sans-serif;
+  --radius-card: 1rem;
+  --radius-button: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    font-family: var(--font-sora);
+    background-color: var(--color-surface-alt);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .dark body {
+    background-color: var(--color-dark-bg);
+    color: var(--color-dark-text);
+  }
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: white;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* GSAP animation targets */
+.animate-in {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.animate-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-stagger > * {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.animate-stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-stagger.is-visible > *:nth-child(1) { transition-delay: 0ms; }
+.animate-stagger.is-visible > *:nth-child(2) { transition-delay: 100ms; }
+.animate-stagger.is-visible > *:nth-child(3) { transition-delay: 200ms; }
+.animate-stagger.is-visible > *:nth-child(4) { transition-delay: 300ms; }
+.animate-stagger.is-visible > *:nth-child(5) { transition-delay: 400ms; }
+
+/* Premium section separator */
+.section-gradient {
+  background: linear-gradient(180deg, var(--color-surface-alt) 0%, var(--color-primary) 100%);
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
 }
