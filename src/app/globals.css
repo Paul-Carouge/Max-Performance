@@ -1,54 +1,58 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-cream: #F8F6F3;
-  --color-cream-dark: #EDE8E0;
-  --color-charcoal: #1C1917;
-  --color-charcoal-light: #292524;
-  --color-amber: #D97706;
-  --color-amber-light: #F59E0B;
-  --color-amber-dark: #B45309;
-  --color-warm-gray: #78716C;
-  --color-warm-gray-light: #D6D3D1;
+  /* ── Palette ───────────────────────────────────────────── */
+  --color-navy: #0F172A;
+  --color-navy-light: #1E293B;
+  --color-navy-card: #1A2332;
+  --color-terra: #C85A3E;
+  --color-terra-light: #E07B5F;
+  --color-gold: #D4A74D;
+  --color-canvas: #F5F0EB;
+  --color-canvas-dark: #E8E0D6;
   --color-surface: #FFFFFF;
-  --color-dark-bg: #1C1917;
-  --color-dark-surface: #292524;
-  --color-dark-text: #F8F6F3;
-  --color-dark-muted: #A8A29E;
-  --color-border: #E7E5E4;
-  --color-dark-border: #44403C;
+  --color-foreground: #1A1A22;
+  --color-muted: #7A7A88;
+  --color-border: #E0D8CF;
 
-  --font-sora: 'Sora', system-ui, -apple-system, sans-serif;
+  /* ── Typography ─────────────────────────────────────────── */
+  --font-heading: var(--font-sora), ui-sans-serif, system-ui;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui;
 }
 
-html { scroll-behavior: smooth; }
-
+/* ── Base ────────────────────────────────────────────────── */
 body {
-  font-family: var(--font-sora);
-  background-color: var(--color-cream);
-  color: var(--color-charcoal);
-  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-body);
 }
 
-::selection { background: var(--color-amber); color: white; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
 
-/* Sections */
-.section-padding { padding: 5rem 1rem; }
-@media (min-width: 768px) { .section-padding { padding: 7rem 1rem; } }
+/* ── Container ──────────────────────────────────────────── */
+.container-site {
+  @apply mx-auto max-w-7xl px-5 md:px-8;
+}
 
-.container-site { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+/* ── Section spacing ────────────────────────────────────── */
+.section-padding {
+  @apply py-20 md:py-28;
+}
 
-/* Animations */
-.fade-up {
+/* ── Scroll animations ──────────────────────────────────── */
+.fade-in {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
-.fade-up.visible { opacity: 1; transform: translateY(0); }
 
-.fade-up-d1 { transition-delay: 0.1s; }
-.fade-up-d2 { transition-delay: 0.2s; }
-.fade-up-d3 { transition-delay: 0.3s; }
-.fade-up-d4 { transition-delay: 0.4s; }
-.fade-up-d5 { transition-delay: 0.5s; }
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-d1 { transition-delay: 0.1s; }
+.fade-in-d2 { transition-delay: 0.2s; }
+.fade-in-d3 { transition-delay: 0.3s; }
+.fade-in-d4 { transition-delay: 0.4s; }
+.fade-in-d5 { transition-delay: 0.5s; }
