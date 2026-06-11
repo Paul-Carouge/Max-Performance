@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     siteName: "Max Performance",
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: "https://max-performance.vercel.app" },
+  alternates: { canonical: "https://max-performance-tau.vercel.app" },
 };
 
 const jsonLd = {
