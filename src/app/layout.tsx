@@ -1,11 +1,22 @@
 import type { Metadata } from "next";
-import { Sora, Inter } from "next/font/google";
+import { Playfair_Display, DM_Sans } from "next/font/google";
 import Navbar from "@/components/navbar";
 import Script from "next/script";
 import "./globals.css";
 
-const sora = Sora({ subsets: ["latin"], display: "swap", variable: "--font-sora" });
-const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-playfair",
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-dm-sans",
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Max Performance | Coach Sportif à Arras",
@@ -54,7 +65,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={`${sora.variable} ${inter.variable} scroll-smooth`}>
+    <html
+      lang="fr"
+      className={`${playfair.variable} ${dmSans.variable} scroll-smooth`}
+    >
       <head>
         <Script
           id="structured-data"
@@ -62,7 +76,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-canvas font-body text-foreground antialiased">
+      <body className="min-h-screen bg-offwhite font-body text-text antialiased">
         <Navbar />
         {children}
       </body>

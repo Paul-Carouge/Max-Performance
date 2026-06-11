@@ -1,25 +1,29 @@
-const links = [
-  { label: "Accueil", href: "#" },
-  { label: "Services", href: "#services" },
-  { label: "Diplômes", href: "#certifications" },
-  { label: "Contact", href: "#contact" },
-];
-
 export default function Footer() {
+  const links = [
+    { label: "Accueil", href: "#" },
+    { label: "Services", href: "#services" },
+    { label: "Diplômes", href: "#certifications" },
+    { label: "Contact", href: "#contact" },
+  ];
+
   return (
-    <footer className="bg-navy-light text-white section-padding pb-8">
+    <footer className="bg-offblack text-text-dark section-padding-sm">
       <div className="container-site">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold font-heading mb-3">Max Performance</h3>
-            <p className="text-white/50 text-sm leading-relaxed">
-              Coach sportif à Arras, Douai et Cambrai. Séances personnalisées pour atteindre vos objectifs.
+            <h3 className="text-xl font-heading font-bold mb-4">
+              Max Performance
+            </h3>
+            <p className="text-text-dark-muted text-sm leading-relaxed max-w-xs">
+              Coaching sportif personnalisé à Arras, Douai et Cambrai. Transformez
+              votre corps, libérez votre potentiel.
             </p>
           </div>
+
           {/* Navigation */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-widest text-gold mb-5">
+            <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-red mb-6">
               Navigation
             </h4>
             <ul className="space-y-3">
@@ -27,7 +31,7 @@ export default function Footer() {
                 <li key={l.href}>
                   <a
                     href={l.href}
-                    className="text-white/50 hover:text-gold transition-colors text-sm"
+                    className="text-text-dark-muted hover:text-red transition-colors duration-200 text-sm"
                   >
                     {l.label}
                   </a>
@@ -35,16 +39,17 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+
           {/* Contact */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-widest text-gold mb-5">
+            <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-red mb-6">
               Contact
             </h4>
-            <ul className="space-y-3 text-sm text-white/50">
+            <ul className="space-y-3 text-sm text-text-dark-muted">
               <li>
                 <a
                   href="mailto:maxperformance.arras@gmail.com"
-                  className="hover:text-gold transition-colors"
+                  className="hover:text-red transition-colors duration-200"
                 >
                   maxperformance.arras@gmail.com
                 </a>
@@ -52,7 +57,9 @@ export default function Footer() {
               <li>
                 <a
                   href="https://instagram.com/maxperformance.arras"
-                  className="hover:text-gold transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-red transition-colors duration-200"
                 >
                   @maxperformance.arras
                 </a>
@@ -61,9 +68,14 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="border-t border-white/10 mt-12 pt-8 text-center">
-          <p className="text-white/30 text-xs">
+
+        {/* Bottom bar */}
+        <div className="border-t border-offblack-border mt-16 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-text-dark-muted text-xs">
             © {new Date().getFullYear()} Max Performance. Tous droits réservés.
+          </p>
+          <p className="text-text-dark-muted/50 text-xs">
+            Site conçu avec passion à Arras
           </p>
         </div>
       </div>

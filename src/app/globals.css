@@ -1,58 +1,106 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* ── Palette ───────────────────────────────────────────── */
-  --color-navy: #0F172A;
-  --color-navy-light: #1E293B;
-  --color-navy-card: #1A2332;
-  --color-terra: #C85A3E;
-  --color-terra-light: #E07B5F;
-  --color-gold: #D4A74D;
-  --color-canvas: #F5F0EB;
-  --color-canvas-dark: #E8E0D6;
+  /* ── Palette OffRed & Off-Black/Off-White ────────────────── */
+  --color-red: #C0392B;
+  --color-red-light: #D4574A;
+  --color-red-dark: #962D22;
+  --color-red-subtle: rgba(192, 57, 43, 0.08);
+  --color-red-subtle-hover: rgba(192, 57, 43, 0.14);
+
+  --color-offblack: #0F0F13;
+  --color-offblack-light: #1A1A20;
+  --color-offblack-card: #1C1C24;
+  --color-offblack-border: rgba(255, 255, 255, 0.06);
+
+  --color-offwhite: #F7F5F2;
+  --color-offwhite-dark: #EEEAE4;
+  --color-offwhite-border: rgba(0, 0, 0, 0.06);
+
   --color-surface: #FFFFFF;
-  --color-foreground: #1A1A22;
-  --color-muted: #7A7A88;
-  --color-border: #E0D8CF;
+  --color-surface-dark: #1C1C24;
+
+  --color-text: #111111;
+  --color-text-soft: #444444;
+  --color-text-muted: #737373;
+
+  --color-text-dark: #F0EEE9;
+  --color-text-dark-soft: #C4C1BC;
+  --color-text-dark-muted: #8A8783;
 
   /* ── Typography ─────────────────────────────────────────── */
-  --font-heading: var(--font-sora), ui-sans-serif, system-ui;
-  --font-body: var(--font-inter), ui-sans-serif, system-ui;
+  --font-heading: "Playfair Display", "Georgia", "Times New Roman", serif;
+  --font-body: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* ── Shadows ────────────────────────────────────────────── */
+  --shadow-red: 0 8px 30px rgba(192, 57, 43, 0.25);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 1px 3px rgba(0, 0, 0, 0.06), 0 16px 40px rgba(0, 0, 0, 0.10);
+  --shadow-lg-dark: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
 /* ── Base ────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   font-family: var(--font-body);
+  background: var(--color-offwhite);
+  color: var(--color-text);
+  font-feature-settings: "ss02", "cv02", "cv03";
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+::selection {
+  background: var(--color-red);
+  color: #FFFFFF;
 }
 
 /* ── Container ──────────────────────────────────────────── */
 .container-site {
-  @apply mx-auto max-w-7xl px-5 md:px-8;
+  @apply mx-auto max-w-7xl px-5 sm:px-8 lg:px-10;
 }
 
 /* ── Section spacing ────────────────────────────────────── */
 .section-padding {
-  @apply py-20 md:py-28;
+  @apply py-24 md:py-36;
 }
 
-/* ── Scroll animations ──────────────────────────────────── */
-.fade-in {
+.section-padding-sm {
+  @apply py-16 md:py-24;
+}
+
+/* ── Glass utility ──────────────────────────────────────── */
+.glass {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+}
+
+/* ── GSAP-ready hidden state ────────────────────────────── */
+.js-reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  visibility: hidden;
 }
 
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* ── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
 }
-
-.fade-in-d1 { transition-delay: 0.1s; }
-.fade-in-d2 { transition-delay: 0.2s; }
-.fade-in-d3 { transition-delay: 0.3s; }
-.fade-in-d4 { transition-delay: 0.4s; }
-.fade-in-d5 { transition-delay: 0.5s; }
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-muted);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-soft);
+}
