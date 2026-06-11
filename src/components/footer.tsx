@@ -76,9 +76,26 @@ export default function Footer() {
           <p className="text-text-dark-muted text-xs font-body normal-case tracking-normal">
             © {new Date().getFullYear()} MAX PERFORMANCE. TOUS DROITS RÉSERVÉS.
           </p>
-          <p className="text-text-dark-muted/50 text-xs font-body normal-case tracking-normal">
-            SITE CONÇU AVEC PASSION À ARRAS
-          </p>
+          <div className="flex items-center gap-4 text-xs font-body normal-case tracking-normal">
+            <span className="text-text-dark-muted/50">SITE CONÇU PAR</span>
+            <a
+              href="https://www.linkedin.com/in/pcarouge/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-dark-muted hover:text-energy transition-colors duration-200 font-semibold"
+            >
+              PAUL CAROUGE
+            </a>
+            <span className="text-text-dark-muted/20">•</span>
+            <a
+              href="https://github.com/Paul-Carouge"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-dark-muted hover:text-energy transition-colors duration-200"
+            >
+              GITHUB
+            </a>
+          </div>
         </div>
       </div>
     </footer>
