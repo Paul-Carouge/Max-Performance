@@ -75,18 +75,18 @@ export default function Hero() {
       ref={sectionRef}
       className="relative min-h-screen flex items-center pt-24 pb-20 md:pb-0 overflow-hidden bg-offwhite"
     >
-      {/* Speed lines background */}
+      {/* Speed lines background — subtle, pushed to edges */}
       <div ref={speedLinesRef} className="hero-bg-parallax absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        {[8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88].map((top, i) => (
+        {[5, 12, 19, 26, 33, 40, 47, 54, 61, 68, 75, 82, 89, 95].map((top, i) => (
           <div
             key={i}
             className="speed-line"
             style={{
               top: `${top}%`,
-              left: `${-5 + (i % 3) * 8}%`,
-              width: `${60 + (i % 4) * 12}%`,
-              transform: `rotate(${-5 + (i % 3) * 3}deg)`,
-              opacity: 0.04 + (i % 3) * 0.03,
+              left: `${(i % 2 === 0 ? -8 : 102) - (i % 3) * 2}%`,
+              width: `${25 + (i % 3) * 8}%`,
+              transform: `rotate(${(i % 2 === 0 ? -8 : 8) + (i % 3) * 2}deg)`,
+              opacity: 0.02 + (i % 3) * 0.01,
             }}
           />
         ))}
