@@ -1,43 +1,51 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* ── Palette OffRed & Off-Black/Off-White ────────────────── */
+  /* ── Palette OffRed + Energy ───────────────────────────── */
   --color-red: #C0392B;
   --color-red-light: #D4574A;
   --color-red-dark: #962D22;
   --color-red-subtle: rgba(192, 57, 43, 0.08);
-  --color-red-subtle-hover: rgba(192, 57, 43, 0.14);
 
-  --color-offblack: #0F0F13;
-  --color-offblack-light: #1A1A20;
-  --color-offblack-card: #1C1C24;
+  --color-energy: #FF5E3A;
+  --color-energy-light: #FF7B5E;
+  --color-energy-glow: rgba(255, 94, 58, 0.25);
+
+  --color-offblack: #0A0A0F;
+  --color-offblack-light: #14141A;
+  --color-offblack-card: #1A1A24;
   --color-offblack-border: rgba(255, 255, 255, 0.06);
 
   --color-offwhite: #F7F5F2;
-  --color-offwhite-dark: #EEEAE4;
-  --color-offwhite-border: rgba(0, 0, 0, 0.06);
+  --color-offwhite-dark: #EDEAE5;
+  --color-offwhite-border: rgba(0, 0, 0, 0.05);
 
   --color-surface: #FFFFFF;
-  --color-surface-dark: #1C1C24;
+  --color-surface-dark: #1C1C26;
 
-  --color-text: #111111;
-  --color-text-soft: #444444;
-  --color-text-muted: #737373;
+  --color-text: #0F0F13;
+  --color-text-soft: #3D3D44;
+  --color-text-muted: #6B6B72;
 
-  --color-text-dark: #F0EEE9;
-  --color-text-dark-soft: #C4C1BC;
-  --color-text-dark-muted: #8A8783;
+  --color-text-dark: #F2F0EC;
+  --color-text-dark-soft: #B8B5AF;
+  --color-text-dark-muted: #7A7772;
 
   /* ── Typography ─────────────────────────────────────────── */
-  --font-heading: "Playfair Display", "Georgia", "Times New Roman", serif;
+  --font-heading: "Bebas Neue", "Oswald", "Impact", sans-serif;
+  --font-display: "Oswald", "Bebas Neue", sans-serif;
   --font-body: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   /* ── Shadows ────────────────────────────────────────────── */
-  --shadow-red: 0 8px 30px rgba(192, 57, 43, 0.25);
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
-  --shadow-card-hover: 0 1px 3px rgba(0, 0, 0, 0.06), 0 16px 40px rgba(0, 0, 0, 0.10);
-  --shadow-lg-dark: 0 20px 60px rgba(0, 0, 0, 0.4);
+  --shadow-red: 0 8px 32px rgba(192, 57, 43, 0.3);
+  --shadow-energy: 0 4px 24px rgba(255, 94, 58, 0.35);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 1px 3px rgba(0, 0, 0, 0.06), 0 20px 48px rgba(0, 0, 0, 0.10);
+  --shadow-xl-dark: 0 24px 64px rgba(0, 0, 0, 0.5);
+
+  /* ── Speed lines pattern ───────────────────────────────── */
+  --speed-gradient: linear-gradient(135deg, var(--color-red) 0%, var(--color-energy) 100%);
 }
 
 /* ── Base ────────────────────────────────────────────────── */
@@ -52,24 +60,27 @@ body {
   background: var(--color-offwhite);
   color: var(--color-text);
   font-feature-settings: "ss02", "cv02", "cv03";
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 ::selection {
-  background: var(--color-red);
+  background: var(--color-energy);
   color: #FFFFFF;
 }
 
-/* ── Container ──────────────────────────────────────────── */
+/* ── Container ─────────────────────────────────────────── */
 .container-site {
   @apply mx-auto max-w-7xl px-5 sm:px-8 lg:px-10;
 }
 
-/* ── Section spacing ────────────────────────────────────── */
+/* ── Section spacing ───────────────────────────────────── */
 .section-padding {
   @apply py-24 md:py-36;
 }
@@ -78,29 +89,39 @@ h1, h2, h3, h4, h5, h6 {
   @apply py-16 md:py-24;
 }
 
-/* ── Glass utility ──────────────────────────────────────── */
+/* ── Glass ─────────────────────────────────────────────── */
 .glass {
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
 }
 
-/* ── GSAP-ready hidden state ────────────────────────────── */
-.js-reveal {
+/* ── Diagonal accent utility ───────────────────────────── */
+.diagonal-clip {
+  clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%);
+}
+
+/* ── GSAP-ready hide ───────────────────────────────────── */
+.js-hide {
   opacity: 0;
   visibility: hidden;
 }
 
-/* ── Scrollbar ──────────────────────────────────────────── */
-::-webkit-scrollbar {
-  width: 6px;
+/* ── Speed line ────────────────────────────────────────── */
+.speed-line {
+  position: absolute;
+  height: 2px;
+  background: var(--color-energy);
+  opacity: 0.15;
+  transform-origin: left center;
 }
-::-webkit-scrollbar-track {
-  background: transparent;
+
+/* ── Scoreboard glow ───────────────────────────────────── */
+.score-glow {
+  text-shadow: 0 0 40px rgba(255, 94, 58, 0.3);
 }
-::-webkit-scrollbar-thumb {
-  background: var(--color-text-muted);
-  border-radius: 999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-soft);
-}
+
+/* ── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-text-muted); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-energy); }

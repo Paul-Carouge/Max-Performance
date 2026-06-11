@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
-import { Playfair_Display, DM_Sans } from "next/font/google";
+import { Bebas_Neue, Oswald, DM_Sans } from "next/font/google";
 import Navbar from "@/components/navbar";
 import Script from "next/script";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const bebas = Bebas_Neue({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-playfair",
-  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-bebas",
+  weight: "400",
+});
+
+const oswald = Oswald({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-oswald",
+  weight: ["400", "500", "600", "700"],
 });
 
 const dmSans = DM_Sans({
@@ -67,7 +74,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${playfair.variable} ${dmSans.variable} scroll-smooth`}
+      className={`${bebas.variable} ${oswald.variable} ${dmSans.variable} scroll-smooth`}
     >
       <head>
         <Script
@@ -76,7 +83,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-offwhite font-body text-text antialiased">
+      <body className="min-h-screen bg-offwhite font-body text-text antialiased overflow-x-hidden">
         <Navbar />
         {children}
       </body>
