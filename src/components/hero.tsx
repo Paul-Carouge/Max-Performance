@@ -117,7 +117,7 @@ export default function Hero() {
           <div className="hero-badge inline-flex items-center gap-4 mb-10 md:mb-12">
             <span className="w-10 h-0.5 bg-energy/60" aria-hidden="true" />
             <span className="text-red font-semibold tracking-[0.25em] text-xs uppercase">
-              Coach sportif à Arras
+              Coach sportif à Etaing
             </span>
             <span className="w-1.5 h-1.5 bg-energy rounded-full" aria-hidden="true" />
           </div>
@@ -134,7 +134,7 @@ export default function Hero() {
 
           {/* Subtitle */}
           <p className="hero-sub text-base md:text-lg text-text-soft max-w-lg mb-10 leading-relaxed font-medium font-body normal-case tracking-normal">
-            Coaching personnalisé à Arras, Douai et Cambrai. Que vous débutiez
+            Coaching personnalisé à Etaing — j'interviens sur Arras, Douai et Cambrai. Que vous débutiez
             ou cherchiez à repousser vos limites, je construis un programme sur
             mesure pour vous.
           </p>

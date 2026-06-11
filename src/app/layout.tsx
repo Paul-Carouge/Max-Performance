@@ -26,10 +26,11 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Max Performance | Coach Sportif à Arras",
+  title: "Max Performance | Coach Sportif à Etaing — Arras, Douai, Cambrai",
   description:
-    "Coach sportif à Arras, Douai et Cambrai. Coaching individuel, collectif, running et préparation physique personnalisée. Séance à partir de 20€.",
+    "Coach sportif à Etaing, intervenant sur Arras, Douai et Cambrai. Coaching individuel, collectif, running et préparation physique personnalisée. Séance à partir de 20€.",
   keywords: [
+    "coach sportif Etaing",
     "coach sportif Arras",
     "coach sportif Douai",
     "coach sportif Cambrai",
@@ -39,9 +40,9 @@ export const metadata: Metadata = {
     "Max Performance",
   ],
   openGraph: {
-    title: "Max Performance | Coach Sportif à Arras",
+    title: "Max Performance | Coach Sportif à Etaing — Arras, Douai, Cambrai",
     description:
-      "Coach sportif à Arras. Coaching individuel dès 20€, collectif, running et préparation physique.",
+      "Coach sportif à Etaing. Coaching individuel dès 20€, collectif, running et préparation physique.",
     type: "website",
     locale: "fr_FR",
     siteName: "Max Performance",
@@ -55,10 +56,10 @@ const jsonLd = {
   "@type": "LocalBusiness",
   name: "Max Performance",
   description:
-    "Coach sportif à Arras, Douai et Cambrai. Coaching individuel, collectif, running et préparation physique.",
+    "Coach sportif à Etaing — intervention sur Arras, Douai et Cambrai. Coaching individuel, collectif, running et préparation physique.",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Arras",
+    addressLocality: "Etaing",
     addressRegion: "Hauts-de-France",
     addressCountry: "FR",
   },

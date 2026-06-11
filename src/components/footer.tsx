@@ -19,7 +19,7 @@ export default function Footer() {
               MAX PERFORMANCE
             </h3>
             <p className="text-text-dark-muted text-sm leading-relaxed max-w-xs font-body normal-case tracking-normal">
-              Coaching sportif personnalisé à Arras, Douai et Cambrai. Transformez votre corps, libérez votre potentiel.
+              Coaching sportif personnalisé à Etaing — intervention sur Arras, Douai et Cambrai. Transformez votre corps, libérez votre potentiel.
             </p>
           </div>
 
