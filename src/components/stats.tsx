@@ -98,7 +98,7 @@ export default function Stats() {
   const ref = useScrollReveal();
 
   return (
-    <section ref={ref} className="relative bg-offblack py-24 md:py-36 overflow-hidden diagonal-clip">
+    <section ref={ref} className="relative bg-offblack py-24 md:py-36 overflow-hidden diagonal-clip" data-dark-section>
       {/* Energy glow background */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-energy-glow rounded-full blur-3xl opacity-20 pointer-events-none" />
 

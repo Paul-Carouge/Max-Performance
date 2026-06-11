@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { usePathname } from "next/navigation";
 
 const links = [
@@ -11,13 +11,38 @@ const links = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [onDark, setOnDark] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const darkObserverRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Detect when navbar is over a dark section
+  const setDarkRef = useCallback((node: HTMLDivElement | null) => {
+    if (darkObserverRef.current) darkObserverRef.current.disconnect();
+
+    if (!node) return;
+
+    darkObserverRef.current = new IntersectionObserver(
+      ([entry]) => {
+        setOnDark(entry.isIntersecting);
+      },
+      {
+        // The navbar is ~64-80px tall. We watch a thin slice at the top of the viewport.
+        rootMargin: "-64px 0px 0px 0px",
+        threshold: 0,
+      }
+    );
+
+    // Observe the dark sections
+    document.querySelectorAll("[data-dark-section]").forEach((el) => {
+      darkObserverRef.current?.observe(el);
+    });
   }, []);
 
   useEffect(() => {
@@ -38,7 +63,7 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <div className="container-site flex items-center justify-between h-16 md:h-20">
+        <div ref={setDarkRef} className="container-site flex items-center justify-between h-16 md:h-20">
           <a
             href="#"
             className="text-lg md:text-xl font-heading font-bold text-text tracking-[0.05em] hover:text-red transition-colors duration-200"
@@ -74,25 +99,29 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile toggle */}
+          {/* Mobile toggle — white on dark sections, dark on light sections */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden relative z-50 w-10 h-10 flex items-center justify-center rounded-full mix-blend-difference text-white"
+            className={`md:hidden relative z-50 w-10 h-10 flex items-center justify-center rounded-full transition-colors duration-300 ${
+              onDark && !scrolled
+                ? "text-white bg-white/10"
+                : "text-text bg-text/[0.06]"
+            }`}
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
           >
             <div className="w-6 h-4 relative flex flex-col justify-between">
               <span
-                className={`block h-0.5 bg-current transition-all duration-300 origin-center ${
+                className={`block h-0.5 bg-current rounded-full transition-all duration-300 origin-center ${
                   open ? "rotate-45 translate-y-[7px]" : ""
                 }`}
               />
               <span
-                className={`block h-0.5 bg-current transition-all duration-200 ${
+                className={`block h-0.5 bg-current rounded-full transition-all duration-200 ${
                   open ? "opacity-0 scale-0" : ""
                 }`}
               />
               <span
-                className={`block h-0.5 bg-current transition-all duration-300 origin-center ${
+                className={`block h-0.5 bg-current rounded-full transition-all duration-300 origin-center ${
                   open ? "-rotate-45 -translate-y-[7px]" : ""
                 }`}
               />

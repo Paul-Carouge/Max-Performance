@@ -106,7 +106,7 @@ export default function Certifications() {
   const ref = useScrollReveal();
 
   return (
-    <section id="certifications" ref={ref} className="section-padding bg-offblack relative overflow-hidden">
+    <section id="certifications" ref={ref} className="section-padding bg-offblack relative overflow-hidden" data-dark-section>
       {/* Energy glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-energy-glow rounded-full blur-3xl opacity-10 pointer-events-none" />
 
