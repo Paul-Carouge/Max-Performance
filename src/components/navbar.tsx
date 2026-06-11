@@ -77,7 +77,7 @@ export default function Navbar() {
           {/* Mobile toggle */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden relative z-50 w-10 h-10 flex items-center justify-center rounded-full bg-text/[0.06] text-text dark:bg-white/[0.08] dark:text-white transition-colors duration-300"
+            className="md:hidden relative z-50 w-10 h-10 flex items-center justify-center rounded-full mix-blend-difference text-white"
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
           >
             <div className="w-6 h-4 relative flex flex-col justify-between">
