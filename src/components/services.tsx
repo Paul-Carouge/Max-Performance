@@ -98,7 +98,7 @@ function ServiceCard({
   return (
     <div
       ref={cardRef}
-      className={`relative group bg-surface rounded-none p-8 md:p-10 transition-all duration-500 hover:shadow-card-hover hover:-translate-y-1.5 border border-offwhite-border ${accentBorders[accent]} ${
+      className={`relative group bg-surface rounded-none p-8 md:p-10 transition-all duration-500 hover:shadow-card-hover hover:-translate-y-1.5 border border-offwhite-border ${accentBorders[accent]} flex flex-col ${
         popular ? "ring-2 ring-red/15" : ""
       }`}
     >
@@ -110,7 +110,7 @@ function ServiceCard({
       )}
 
       {/* Price — athletic, bold */}
-      <div className="mb-6">
+      <div className="mb-5">
         <span className="text-5xl md:text-6xl font-heading font-bold text-text tabular-nums">
           {price}
         </span>
@@ -120,13 +120,13 @@ function ServiceCard({
       {/* Title */}
       <h3 className="text-xl font-heading font-bold text-text mb-3 tracking-[0.05em]">{title}</h3>
 
-      {/* Description */}
-      <p className="text-sm text-text-muted leading-relaxed mb-8 font-body normal-case tracking-normal">{desc}</p>
+      {/* Description — flex-1 pushes CTA to bottom */}
+      <p className="text-sm text-text-muted leading-relaxed mb-6 font-body normal-case tracking-normal flex-1">{desc}</p>
 
-      {/* CTA */}
+      {/* CTA — always at the bottom */}
       <a
         href="#contact"
-        className="inline-flex items-center gap-2 text-sm font-bold text-red hover:text-energy transition-colors duration-200 group/link tracking-[0.1em]"
+        className="inline-flex items-center gap-2 text-sm font-bold text-red hover:text-energy transition-colors duration-200 group/link tracking-[0.1em] mt-2"
       >
         RÉSERVER
         <svg
