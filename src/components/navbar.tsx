@@ -59,7 +59,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
           scrolled
-            ? "glass bg-offwhite/95 border-b border-offwhite-border"
+            ? "bg-offwhite shadow-sm border-b border-offwhite-border"
             : "bg-transparent"
         }`}
       >
