@@ -5,13 +5,13 @@ import { useScrollReveal } from "@/lib/use-scroll-reveal";
 const contacts = [
   {
     title: "EMAIL",
-    desc: "maxperformance.arras@gmail.com",
-    href: "mailto:maxperformance.arras@gmail.com",
+    desc: "maximewrzesinski@gmail.com",
+    href: "mailto:maximewrzesinski@gmail.com",
   },
   {
     title: "INSTAGRAM",
-    desc: "@maxperformance.arras",
-    href: "https://instagram.com/maxperformance.arras",
+    desc: "_maxperformance_",
+    href: "https://instagram.com/_maxperformance_",
   },
   {
     title: "SECTEURS",

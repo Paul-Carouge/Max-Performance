@@ -22,7 +22,7 @@ const services = [
     unit: "/séance (2 pers.)",
     desc: "Entraînez-vous à deux. Motivation décuplée, tarif réduit. Idéal pour les couples ou amis.",
     popular: false,
-    accent: "top",
+    accent: "left",
   },
   {
     title: "RUNNING",
@@ -30,7 +30,7 @@ const services = [
     unit: "/mois",
     desc: "Préparation course à pied, trail, marathon. Plan d'entraînement, suivi et conseils nutrition.",
     popular: false,
-    accent: "bottom",
+    accent: "left",
   },
   {
     title: "PRÉPARATION PHYSIQUE",
@@ -38,7 +38,7 @@ const services = [
     unit: "/mois",
     desc: "Préparation aux épreuves sportives : tests physiques, concours, reprise après blessure.",
     popular: false,
-    accent: "right",
+    accent: "left",
   },
 ];
 

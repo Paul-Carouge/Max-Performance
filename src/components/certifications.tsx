@@ -11,13 +11,13 @@ const certifs = [
   {
     title: "LICENCE STAPS",
     desc: "Mention Entraînement Sportif — Université d'Artois",
-    year: "2018",
+    year: "2022",
     rank: 1,
   },
   {
     title: "DEJEPS",
     desc: "Diplôme d'État Jeunesse, Éducation Populaire et Sport",
-    year: "2020",
+    year: "2023",
     rank: 2,
   },
   {

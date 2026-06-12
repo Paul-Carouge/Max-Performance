@@ -86,10 +86,6 @@ export default function Navbar() {
               href="#services"
               className="relative inline-flex items-center gap-2 bg-red hover:bg-energy text-white px-6 py-2.5 text-xs font-bold tracking-[0.15em] transition-all duration-300 shadow-red hover:shadow-energy hover:-translate-y-0.5 overflow-hidden group/cta"
             >
-              COMMENCER
-              <svg className="w-3.5 h-3.5 group-hover/cta:translate-x-0.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
-              </svg>
               {/* Energy flash on hover */}
               <span className="absolute inset-0 bg-energy opacity-0 group-hover/cta:opacity-100 transition-opacity duration-200" />
               <span className="relative z-10 flex items-center gap-2">COMMENCER

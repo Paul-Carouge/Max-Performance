@@ -50,20 +50,20 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-text-dark-muted font-body normal-case tracking-normal">
               <li>
                 <a
-                  href="mailto:maxperformance.arras@gmail.com"
+                  href="mailto:maximewrzesinski@gmail.com"
                   className="hover:text-energy transition-colors duration-200"
                 >
-                  maxperformance.arras@gmail.com
+                  maximewrzesinski@gmail.com
                 </a>
               </li>
               <li>
                 <a
-                  href="https://instagram.com/maxperformance.arras"
+                  href="https://instagram.com/_maxperformance_"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-energy transition-colors duration-200"
                 >
-                  @maxperformance.arras
+                  Contactez-moi sur Instagram
                 </a>
               </li>
               <li>Arras • Douai • Cambrai</li>
